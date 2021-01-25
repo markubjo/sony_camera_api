@@ -44,6 +44,7 @@ class ControlPoint(object):
         sock.settimeout(0.1)
         # Set the socket to broadcast mode.
         sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
+        sock.setsockopt(socket.SOL_SOCKET, 25, str('wlp0s20f3').encode('utf-8'))
         self._udp_socket = sock
 
     def close(self):
