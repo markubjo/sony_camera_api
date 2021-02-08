@@ -10,6 +10,7 @@ from struct import unpack, unpack_from
 from xml.etree import ElementTree
 import logging
 import sys
+import subprocess
 
 if sys.version_info < (3, 0):
     from Queue import LifoQueue
@@ -43,8 +44,10 @@ class ControlPoint(object):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.settimeout(0.1)
         # Set the socket to broadcast mode.
+        ps = subprocess.run(['iw', 'dev'], capture_output=True, text=True)
+        wireless_interface = (ps.stdout.split('Interface ')[1]).split('\n')[0]
         sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
-        sock.setsockopt(socket.SOL_SOCKET, 25, str('wlp0s20f3').encode('utf-8'))
+        sock.setsockopt(socket.SOL_SOCKET, 25, wireless_interface.encode('utf-8'))
         self._udp_socket = sock
 
     def close(self):
