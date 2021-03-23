@@ -148,6 +148,7 @@ no_param = ["getShootMode",
             "getAvailableSteadyMode",
             "getViewAngle",
             "getSupportedViewAngle",
+            "getSupportedViewAngleMode",
             "getAvailableViewAngle",
             "getSceneSelection",
             "getSupportedSceneSelection",
@@ -194,7 +195,9 @@ no_param = ["getShootMode",
             "getAvailableApiList",
             "getApplicationInfo",
             "getVersions",
-            "getMethodTypes"] #  camera, system and avContent
+            "getMethodTypes",
+            "getSupportedNearModeInPF",
+            "getSupportedWirelessFlashSetting"] #  camera, system and avContent
 
 params = [{"name":"shoot mode",
            "value": ["still", "movie", "audio", "intervalstill"],

@@ -949,6 +949,15 @@ class SonyAPI():
     def getSupportedViewAngle(self, version='1.0'):
         return self._cmd(method="getSupportedViewAngle", version=version)
 
+    def getSupportedViewAngleMode(self, version='1.0'):
+        return self._cmd(method="getSupportedViewAngleMode", version=version)
+
+    def getSupportedNearModeInPF(self, version='1.0'):
+        return self._cmd(method="getSupportedNearModeInPF", version=version)
+
+    def getSupportedWirelessFlashSetting(self, version='1.0'):
+        return self._cmd(method="getSupportedWirelessFlashSetting", version=version)
+
     def getAvailableViewAngle(self, version='1.0'):
         return self._cmd(method="getAvailableViewAngle", version=version)
 
@@ -1065,3 +1074,5 @@ class SonyAPI():
 
     def getVersions(self, target=None, version='1.0'):
         return self._cmd(method="getVersions", target=target, version=version)
+    
+
